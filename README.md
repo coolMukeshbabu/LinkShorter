@@ -1,17 +1,8 @@
 # LinkShorter
 
 How to use
-
-STEP 1 : Run this query in your sql/db
-
-CREATE TABLE `Links` (
- `ID` int(11) NOT NULL AUTO_INCREMENT,
- `FULL_LINK` varchar(1000) NOT NULL,
- `SHORT_LINK` varchar(500) NOT NULL,
- PRIMARY KEY (`ID`)
- ) 
 __________________________________________________________________________________
-STEP:2
+STEP:1
 Open "config.php" and fill the database configrations
 /* Database Configration */
 $servername = "localhost";
@@ -19,7 +10,7 @@ $username = " ";
 $password = " ";
 $database = " ";
 __________________________________________________________________________________
-STEP:3
+STEP:2
 Open "config.php" and fill the baseURL
 $baseURL = ""; /* https://www.example.com/ */
 __________________________________________________________________________________
