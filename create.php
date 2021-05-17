@@ -1,25 +1,57 @@
 
 <!DOCTYPE html>
 <html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body>
+<style>
+html,body {
+    background: rgb(63,94,251);
+background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(70,252,228,0.9252743333661589) 100%);
 
-<center>
+    width: 100%;
+    height: 100%;
+    display: table
+}
+.container {
+     display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+#primaryButton
+{
+    font-size: 20px;
+    background: #cc3f3fad;
+    color: white;
+    padding: 8px;
+    border: solid 2px #54fbe6;
+    border-radius: 10px;
+}
+
+#infoMessage
+{
+    color:white;
+    font-size:30px;
+}
+</style>
+
+    <div class="container" >
     <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
-        <label>Enter link to shorten</label><br>
-        <input name="long_link">
-        <input type="submit" value="SUBMIT"/>
+        <p id="infoMessage">Enter link to shorten</p>
+        <input name="long_link"> <br><br>
+        <input id="primaryButton" type="submit" value="SUBMIT"/>
     </form>
     
     <!-- The text field -->
     <br><br>
     <div id="divResult">
-<textarea value="" id="shortLink"></textarea>
+<textarea value="" id="shortLink"></textarea><br>
 
 <!-- The button used to copy the text -->
-<button onclick="copyToClip()">Copy</button>
+<button id="primaryButton" onclick="copyToClip()">Copy</button>
 </div>
 
-</center>
+</div>
+
 
 </body>
 

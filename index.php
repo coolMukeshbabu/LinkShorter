@@ -1,5 +1,6 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?php
-
 include("connect.php");
 $code = getShortLinkCode();
 
@@ -18,7 +19,7 @@ mysqli_close($con);
 
 function redirect($url)
 {
-    echo $url;
+    //echo $url;
    $redirectScript =  '<script type="text/javascript">
            window.location = "{URL}"
       </script>';
@@ -30,3 +31,4 @@ function getShortLinkCode()
     //return $_GET["code"];
 }
 ?>
+</html>
