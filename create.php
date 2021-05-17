@@ -39,13 +39,21 @@
 </html>
 
 <?php
-include("connect.php");
 include("config.php");
+include("connect.php");
 
 /*
 
 
+
 */
+
+$is = isTableExists();
+if(!$is)
+{
+ createTable();   
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
     $shortLink = getRandomString($urlParameterLength);
@@ -71,4 +79,35 @@ function getRandomString($length)
      return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
    
 }
+
+function isTableExists()
+{
+    include("config.php");
+    include("connect.php");
+    $table = "Links";
+  if ($result = mysqli_query($con,"SHOW TABLES LIKE '".$table."'")) {
+    if($result->num_rows == 1) {
+        return true;
+    }
+}
+else {
+     return false;
+}  
+}
+
+function createTable()
+{
+    include("config.php");
+    include("connect.php");
+    $sqlQuery = "CREATE TABLE Links ( ID int(11) NOT NULL AUTO_INCREMENT, FULL_LINK varchar(1000) NOT NULL, SHORT_LINK varchar(500) NOT NULL, PRIMARY KEY (ID) )";
+    if (mysqli_query($con, $sqlQuery)) {
+ // echo "Created successfully";
+
+} else {
+  echo "Error: " . $sql . "<br>" . mysqli_error($con);
+}
+
+mysqli_close($con);
+}
+
 ?>
